@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ar-en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="home s.css"> 
+        <title>HOLE IN ONE</title>
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    </head>
+    <body>
+     
+    <header>
+        <div class="search-box" dir="rtl">
+            <input type="text" placeholder="ابحث هنا...">
+        </div>
+        <button class="menu-button" onclick="openMenu()">&#9776;</button>
+    </header>
+     
+    <!-- القائمة الجانبية -->
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" onclick="closeMenu()">&times;</button>
+        <ul>
+            <li><a href="home.html">الصفحة الرئيسية</a></li>
+            <li><a href="hot_rest.html">مطاعم وفنادق</a></li>
+            <li><a href="golf.html">الغولف</a></li>
+            <li><a href="Packages.html">حزم الخدمات والمنتجات</a></li>
+            <li><a href="about.html">حول شركتنا</a></li>
+            <li><div id="google_translate_element"></div></li>
+        </ul>
+    </div>
+    
+    <script>
+        // قائمة التنقل
+        function openMenu() {
+            document.getElementById("sidebar").style.right = "0";
+        }
+        function closeMenu() {
+            document.getElementById("sidebar").style.right = "-250px";
+        }
+
+    </script>
+     <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'ar',
+                includedLanguages: 'en,fr,de,es,it,zh,ru,ja,ar,pt',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+    
+            // استعادة اللغة المحفوظة
+            let savedLang = localStorage.getItem("selectedLanguage");
+            if (savedLang) {
+                changeLanguage(savedLang);
+            }
+        }
+    
+        function changeLanguage(lang) {
+            let selectField = document.querySelector(".goog-te-combo");
+            if (selectField) {
+                selectField.value = lang;
+                selectField.dispatchEvent(new Event("change"));
+                localStorage.setItem("selectedLanguage", lang);
+            }
+        }
+    
+        // استعادة اللغة المحفوظة عند تحميل الصفحة
+        window.onload = function () {
+            googleTranslateElementInit(); // تأكد من تحميل الترجمة مجددًا عند كل تحميل صفحة
+    
+            let savedLang = localStorage.getItem("selectedLanguage");
+            if (savedLang) {
+                changeLanguage(savedLang); // تغيير اللغة وفقًا للمحفوظ في localStorage
+            }
+        };
+    
+        // تحديث اللغة عند الضغط على أي خيار من القائمة
+        document.addEventListener("click", function () {
+            setTimeout(() => {
+                let langElement = document.querySelector(".goog-te-menu-value span:first-child");
+                if (langElement) {
+                    let langCode = langElement.innerText.substring(0, 2).toLowerCase();
+                    localStorage.setItem("selectedLanguage", langCode); // حفظ اللغة في localStorage
+                }
+            }, 500);
+        });
+    </script>
+
+<div class="content-container">
+    <!-- المحتوى الأول: الصورة في الأعلى والنص أسفلها -->
+    <div class="content-box">
+        <img src="صور\plogo.jpg" alt="logo">
+        <div class="text">
+            <h2>:نبذة عن الموقع </h2>
+            <p>يُعد "هول إن ون" منتجعًا مميزًا للجولف يقع في البرتغال، ويتميز بتقديم مجموعة من الخدمات والمرافق الراقية التي تستقطب محبي لعبة الجولف والأنشطة المترابطة بها. يوفر المنتجع ثلاثة ملاعب جولف شهيرة، بما في ذلك ملعب "سي فيو"، إضافة إلى ناديين، وفنادق للإقامة، ومطاعم ومقاهي متنوعة، ومتجر متخصص في معدات الجولف. كما يقدم المنتجع تجربة مميزة من خلال أنشطة إضافية تشمل دروس الجولف، تدريب رقمي، وخدمة المساعدة على حمل الأدوات.</p>
+            <p>يتميز المنتجع بتقديم حزم متنوعة مثل حزمة الإقامة الكاملة، الحزمة الثلاثية، وحزمة الاستراحة الاستجمامية، التي تلبي احتياجات كافة أنواع الزوار سواء للاسترخاء أو لممارسة الجولف بشكل احترافي. يمكن للعملاء أيضًا طلب حزم مخصصة للفعاليات المؤسسية والإقامات الطويلة.</p>
+        </div>
+    </div>
+
+    <!-- المحتوى الثاني: الصورة على اليمين والنص على اليسار -->
+    <div class="content-box reverse">
+        <div class="text">
+            <h2>:أهداف الموقع</h2>
+           <p>يهدف الموقع الإلكتروني الجديد لشركة "هول إن ون" إلى توفير تجربة مستخدم مميزة عبر تقديم معلومات شاملة حول المنتجع، بما في ذلك خدمات الجولف المتاحة، المرافق المختلفة، الحزم المخصصة، والأنشطة الترفيهية. سيتمكن الزوار من الاطلاع على تفاصيل الحزم المختلفة والتواصل مع الشركة لطلب المزيد من المعلومات. يتميز الموقع بتصميم عصري وجذاب يناسب جميع الأجهزة بفضل التخطيط التكيفي، بالإضافة إلى توفير ميزات إمكانية الوصول للمساعدة في تسهيل استخدام الموقع لجميع الزوار.</p>
+        </div>
+        <img src="صور\WHIO-better.png" alt="gole_photo">
+    </div>
+        <div class="user_information" >
+            <h2>يمكنك إضافة معلوماتك هنا</h2>
+            <form dir="rtl">
+                <label>الاسم الأول:</label><br>
+                <input type="text" placeholder="أدخل اسمك الأول"><br>
+        
+                <label>الاسم الأخير:</label><br>
+                <input type="text" placeholder="أدخل اسمك الأخير"><br>
+        
+                <label>رقم الهاتف:</label><br>
+                <input type="text" placeholder="أدخل رقم هاتفك"><br>
+        
+                <label>عنوان البريد الإلكتروني:</label><br>
+                <input type="email" placeholder="أدخل بريدك الإلكتروني"><br>
+            </form>
+            <button type="submit" class="sub-button">إرسال</button>
+        </div>
+    
+        <footer>
+            <p>البريد الإلكتروني: <a href="mailto:info@holingolfportugal.com">info@holingolfportugal.com</a></p> <!--استخدمت رابط mailto لتمكين الزوار من إرسال رسالة بريد إلكتروني عند النقر على البريد -->
+            <p>رقم الهاتف: <a href="tel:+351912345678">+351 912 345 678</a></p> <!-- استخدمت رابط tel لجعل رقم الهاتف قابلًا للاتصال مباشرة عند النقر عليه من الأجهزة المحمولة-->
+            <p><a href="about.html">حول الشركة</a> 
+            <p><a href="sitemap.html">خريطة الموقع</a> 
+            <div>
+                <a href="https://facebook.com" target="_blank"><img src="صور\facebook.png" alt="Facebook"></a>
+                <a href="https://twitter.com" target="_blank"><img src="صور\twitter.png" alt="Twitter"></a>
+                <a href="https://instagram.com" target="_blank"><img src="صور\instagram.png" alt="Instagram"></a>
+                <!-- يمكنك إضافة المزيد من الأيقونات إذا لزم الأمر -->
+            </div>
+            <p>&copy; 2025 جميع الحقوق محفوظة</p>
+        </footer>
+           
+    </body>
+</html>

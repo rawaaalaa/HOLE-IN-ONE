@@ -1,0 +1,417 @@
+/* الأساسيات */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    transition: background-color 0.3s ease;
+}
+
+/* تنسيق الخلفية */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 60vh; /* ارتفاع الخلفية */
+    background: url('صور/منتجع..jpg') no-repeat center center/cover; /* تأكد من أن اسم الصورة صحيح */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+/* تأثير التعتيم على الخلفية */
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px; /* ارتفاع الموجة */
+    background: white;
+    clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+}
+
+/* طبقة تعتيم خفيفة فوق الخلفية */
+.overlay {
+    position: relative;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.4); /* إضافة ظل خفيف */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* تنسيق النص فوق الصورة */
+.overlay {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5); /* خلفية شبه شفافة للنص */
+    border-radius: 10px;
+   
+}
+/* تنسيق النص في القسم التالي */
+.content {
+    padding: 40px;
+    background: white;
+    text-align: center;
+}
+
+.overlay h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.overlay p {
+    font-size: 1.5em;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #97c0ff;
+}
+
+/* تنسيق الـ Header */
+header {
+    background-color: #234c89;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-box input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    width: 500px;
+    height: 40px;
+    font-size: 16px;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.menu-button:hover {
+    transform: scale(1.1);
+}
+
+/* تنسيق القائمة الجانبية */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #000000;
+    color: white;
+    transition: right 0.3s;
+    padding-top: 60px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    text-align: right;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li:hover {
+    background-color: #333;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 25px;
+}
+
+.close-btn:hover {
+    color: #97c0ff;
+}
+
+/* تنسيق المحتوى الرئيسي */
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+}
+
+.content-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 80%;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    gap: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.content-box img {
+    width: 50%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.content-box img:hover {
+    transform: scale(1.05);
+}
+
+.content-box .text {
+    width: 50%;
+    text-align: right;
+}
+
+.content-box .text h2 {
+    color: #234c89;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.content-box .text p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* تنسيق الفيديو */
+.video-container {
+    width: 100%;
+    max-width: 800px; 
+    margin: 0 auto; /* لتوسيط الفيديو */
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+video {
+    width: 100%; /* الفيديو سيأخذ عرض الحاوية بالكامل */
+    height: auto; /* الحفاظ على نسبة الأبعاد الأصلية للفيديو */
+    border-radius: 8px; /* إذا أردت إضافة حواف دائرية */
+}
+
+
+/* تنسيق نموذج إدخال المعلومات */
+.user_information {
+    width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user_information h2 {
+    text-align: center;
+    font-size: 1.8em;
+    color: #234c89;
+    margin-bottom: 25px;
+}
+
+.user_information label {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.user_information input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.user_information input:focus {
+    border-color: #234c89;
+    outline: none;
+}
+
+.sub-button {
+    background-color: #234c89;
+    font-size: 18px;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sub-button:hover {
+    background-color: #145396;
+    transform: scale(1.05);
+}
+
+/* تنسيق الـ Footer */
+footer {
+    text-align: center;
+    padding: 25px;
+    background-color: #234c89;
+    color: white;
+    width: 100%;
+    margin-top: 0px;
+    font-size: 16px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #97c0ff;
+}
+
+footer div {
+    margin-top: 20px;
+}
+
+footer div a {
+    margin: 0 10px;
+}
+
+footer div a img {
+    width: 25px;
+    height: 25px;
+    transition: transform 0.3s ease;
+}
+
+footer div a:hover img {
+    transform: scale(1.2);
+}
+
+/* تحسين الترجمة */
+#google_translate_element {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.goog-te-gadget-simple {
+    background-color: #234c89;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.goog-te-gadget-simple:hover {
+    background-color: #145396;
+}
+/*مطاعم وفنادق*/
+html, body {
+    overflow-x: hidden; /* منع التمرير الأفقي */
+}
+
+  /* تنسيق شريط الصور المتحرك */
+  .image-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: 10px auto;
+}
+
+.slider-wrapper {
+    display: flex;
+    width: 200%; /* لضمان الاستمرارية في الحركة */
+    animation: slide 15s linear infinite;
+}
+
+.slider-wrapper img {
+    width:  14.28%;; /* توزيع الصور بالتساوي ليظهر 6 صور في كل لحظة */
+    flex-shrink: 0;
+    object-fit: cover; /* جعل الصور تغطي المساحة بدون تشويه */
+    margin: 0; /* إزالة أي مسافات زائدة */
+    padding: 0;
+}
+
+@keyframes slide {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); } /* استمرار الحركة بدون عودة فجائية */
+}
+/* تحسين ترتيب الـ z-index لتجنب التصادم بين العناصر */
+.image-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: 10px auto;
+    z-index: 1; /* تأكد من أن الشريط يأتي خلف العناصر الأخرى */
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #000000;
+    color: white;
+    transition: right 0.3s;
+    padding-top: 60px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 2; /* تأكد من أن القائمة الجانبية تكون أمام الصور المتحركة */
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    z-index: 2; /* هذا يمكن أن يساعد في إبقاء المحتوى في أعلى ترتيب من الصور المتحركة */
+}
+

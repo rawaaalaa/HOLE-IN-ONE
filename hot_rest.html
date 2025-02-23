@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home s.css"> 
+    <title>HOLE IN ONE</title>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+
+    <header>
+        <div class="search-box" dir="rtl">
+            <input type="text" placeholder="ابحث هنا...">
+        </div>
+        <button class="menu-button" onclick="openMenu()">&#9776;</button>
+    </header>
+      
+    <!-- القائمة الجانبية -->
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" onclick="closeMenu()">&times;</button>
+        <ul>
+            <li><a href="home.html">الصفحة الرئيسية</a></li>
+            <li><a href="hot_rest.html">مطاعم وفنادق</a></li>
+            <li><a href="golf.html">الغولف</a></li>
+            <li><a href="Packages.html">حزم الخدمات والمنتجات</a></li>
+            <li><a href="about.html">حول شركتنا</a></li>
+            <li><div id="google_translate_element"></div></li>
+        </ul>
+    </div>
+    
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'ar',
+                includedLanguages: 'en,fr,de,es,it,zh,ru,ja,ar,pt',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+    
+            // استعادة اللغة المحفوظة
+            let savedLang = localStorage.getItem("selectedLanguage");
+            if (savedLang) {
+                changeLanguage(savedLang);
+            }
+        }
+    
+        function changeLanguage(lang) {
+            let selectField = document.querySelector(".goog-te-combo");
+            if (selectField) {
+                selectField.value = lang;
+                selectField.dispatchEvent(new Event("change"));
+                localStorage.setItem("selectedLanguage", lang);
+            }
+        }
+    
+        // استعادة اللغة المحفوظة عند تحميل الصفحة
+        window.onload = function () {
+            googleTranslateElementInit(); // تأكد من تحميل الترجمة مجددًا عند كل تحميل صفحة
+    
+            let savedLang = localStorage.getItem("selectedLanguage");
+            if (savedLang) {
+                changeLanguage(savedLang); // تغيير اللغة وفقًا للمحفوظ في localStorage
+            }
+        };
+    
+        // تحديث اللغة عند الضغط على أي خيار من القائمة
+        document.addEventListener("click", function () {
+            setTimeout(() => {
+                let langElement = document.querySelector(".goog-te-menu-value span:first-child");
+                if (langElement) {
+                    let langCode = langElement.innerText.substring(0, 2).toLowerCase();
+                    localStorage.setItem("selectedLanguage", langCode); // حفظ اللغة في localStorage
+                }
+            }, 500);
+        });
+    </script>
+    
+    <footer>
+        <p>البريد الإلكتروني: <a href="mailto:info@holingolfportugal.com">info@holingolfportugal.com</a></p> <!--استخدمت رابط mailto لتمكين الزوار من إرسال رسالة بريد إلكتروني عند النقر على البريد -->
+        <p>رقم الهاتف: <a href="tel:+351912345678">+351 912 345 678</a></p> <!-- استخدمت رابط tel لجعل رقم الهاتف قابلًا للاتصال مباشرة عند النقر عليه من الأجهزة المحمولة-->
+        <p><a href="about.html">حول الشركة</a> 
+        <p><a href="sitemap.html">خريطة الموقع</a> 
+        <div>
+            <a href="https://facebook.com" target="_blank"><img src="صور\facebook.png" alt="Facebook"></a>
+            <a href="https://twitter.com" target="_blank"><img src="صور\twitter.png" alt="Twitter"></a>
+            <a href="https://instagram.com" target="_blank"><img src="صور\instagram.png" alt="Instagram"></a>
+            <!-- يمكنك إضافة المزيد من الأيقونات إذا لزم الأمر -->
+        </div>
+        <p>&copy; 2025 جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script>
+        // قائمة التنقل
+        function openMenu() {
+            document.getElementById("sidebar").style.right = "0";
+        }
+        function closeMenu() {
+            document.getElementById("sidebar").style.right = "-250px";
+        }
+    </script>
+
+</body>
+</html>
